@@ -13,16 +13,23 @@ export default function Home() {
 
         <div className="relative z-10 px-8 md:px-16 pb-16 max-w-xl">
           <h1 className="text-4xl md:text-6xl font-bold text-white uppercase mb-4 leading-tight">
-            Kućni ljubimci
+            Naši ljubimci
           </h1>
           <p className="text-white/80 text-base md:text-lg mb-8 leading-relaxed">
-            Sve o vašim omiljenim ljubimcima — od mačaka i pasa do egzotičnih vrsta.
+            Sve o naša 2 ljubimca 
           </p>
+
           <a
-            href="/o-stranici"
-            className="inline-block px-6 py-3 border-2 border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors duration-300"
+            href="/oskar"
+            className="inline-block px-6 py-2 border-2 border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors duration-300"
           >
-            Saznaj više
+            Oskar
+          </a>
+          <a
+            href="/oryx"
+            className="inline-block px-6 py-2 border-2 border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors duration-300"
+          >
+            Oryx
           </a>
         </div>
 
