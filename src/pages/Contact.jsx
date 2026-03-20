@@ -1,6 +1,7 @@
+
 export default function Contact() {
   return (
-    <main className="flex flex-col items-center flex-1 px-6 pt-24 pb-24 max-w-2xl mx-auto w-full">
+    <main className="flex flex-col items-center flex-1 px-12 md:px-24 pt-24 pb-24 w-full">
       <h1 className="text-4xl md:text-5xl font-semibold text-(--text-h) mb-12 text-center">
         Kontakt
       </h1>

@@ -6,6 +6,7 @@ const links = [
   { to: '/o-stranici', label: 'O stranici' },
   { to: '/oskar', label: 'Oskar' },
   { to: '/oryx', label: 'Oryx' },
+  { to: '/zdravlje', label: 'Zdravlje' },
   { to: '/kontakt', label: 'Kontakt' },
 ]
 
@@ -20,7 +21,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-281.5 mx-auto px-6 flex items-center justify-between h-16">
         <NavLink to="/" className="text-white font-semibold text-lg drop-shadow">
-          Kućni ljubimci
+          Naši kućni ljubimci
         </NavLink>
 
         {/* Desktop */}

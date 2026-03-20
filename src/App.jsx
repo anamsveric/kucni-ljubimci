@@ -6,17 +6,21 @@ import About from './pages/About'
 import Oskar from './pages/Oskar'
 import Oryx from './pages/Oryx'
 import Contact from './pages/Contact'
+import Health from './pages/Health'
+import ScrollToTop from './components/ScrollToTop'
 import Privacy from './pages/Privacy'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/o-stranici" element={<About />} />
         <Route path="/oskar" element={<Oskar />} />
         <Route path="/oryx" element={<Oryx />} />
+        <Route path="/zdravlje" element={<Health />} />
         <Route path="/kontakt" element={<Contact />} />
         <Route path="/politika-privatnosti" element={<Privacy />} />
       </Routes>
