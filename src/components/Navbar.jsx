@@ -3,45 +3,72 @@ import { NavLink } from 'react-router-dom'
 
 const links = [
   { to: '/', label: 'Početna' },
-  { to: '/o-stranici', label: 'O stranici' },
+  { to: '/o-stranici', label: 'O nama' },
   { to: '/oskar', label: 'Oskar' },
   { to: '/oryx', label: 'Oryx' },
   { to: '/zdravlje', label: 'Zdravlje' },
   { to: '/kontakt', label: 'Kontakt' },
 ]
 
-const linkClass = ({ isActive }) =>
-  'text-sm transition-colors ' +
-  (isActive ? 'text-white font-medium' : 'text-white/70 hover:text-white')
+function PawIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+      <ellipse cx="12" cy="20" rx="6" ry="9" />
+      <ellipse cx="26" cy="12" rx="6" ry="9" />
+      <ellipse cx="40" cy="12" rx="6" ry="9" />
+      <ellipse cx="54" cy="20" rx="6" ry="9" />
+      <path d="M32 28c-10 0-20 8-18 20 1.5 9 8 12 18 12s16.5-3 18-12c2-12-8-20-18-20z" />
+    </svg>
+  )
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? 'bg-black/70 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${
+        scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
+      style={{ background: 'var(--nav-bg)', borderBottom: '1px solid var(--border)' }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <NavLink to="/" className="text-white font-semibold text-lg drop-shadow">
-          Naši kućni ljubimci 🐾
+        {/* Logo */}
+        <NavLink
+          to="/"
+          className="flex items-center gap-2 font-semibold text-base"
+          style={{ color: 'var(--accent)', fontFamily: 'var(--heading)' }}
+        >
+          <PawIcon />
+          Oskar &amp; Oryx
         </NavLink>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex gap-6 list-none m-0 p-0">
+        {/* Desktop links */}
+        <ul className="hidden md:flex gap-1 list-none m-0 p-0">
           {links.map((link) => (
             <li key={link.to}>
-              <NavLink to={link.to} className={linkClass} end={link.to === '/'}>
+              <NavLink
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  'text-sm px-4 py-1.5 rounded-full transition-all duration-200 font-medium ' +
+                  (isActive
+                    ? 'text-white'
+                    : 'hover:bg-black/5')
+                }
+                style={({ isActive }) =>
+                  isActive
+                    ? { background: 'var(--accent)', color: '#fff' }
+                    : { color: 'var(--text-h)' }
+                }
+              >
                 {link.label}
               </NavLink>
             </li>
@@ -50,7 +77,8 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white p-2 cursor-pointer"
+          className="md:hidden p-2 rounded-lg cursor-pointer transition-colors hover:bg-black/5"
+          style={{ color: 'var(--text-h)' }}
           onClick={() => setOpen(!open)}
           aria-label="Izbornik"
         >
@@ -73,15 +101,20 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden list-none m-0 p-0 border-t border-white/10">
+        <ul className="md:hidden list-none m-0 p-3 flex flex-col gap-1" style={{ borderTop: '1px solid var(--border)', background: 'var(--nav-bg)' }}>
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  'block px-6 py-3 text-sm transition-colors ' +
-                  (isActive ? 'text-white font-medium' : 'text-white/70 hover:text-white')
+                  'block px-4 py-2.5 text-sm rounded-xl transition-colors font-medium ' +
+                  (isActive ? 'text-white' : '')
+                }
+                style={({ isActive }) =>
+                  isActive
+                    ? { background: 'var(--accent)', color: '#fff' }
+                    : { color: 'var(--text-h)' }
                 }
                 onClick={() => setOpen(false)}
               >

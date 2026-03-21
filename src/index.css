@@ -1,25 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --text: #c9c5d0;
-  --text-h: #f3f0f8;
-  --bg: #7d9099;
-  --border: #3a383f;
-  --code-bg: #2a2830;
-  --accent: #c084fc;
-  --accent-bg: rgba(192, 132, 252, 0.15);
-  --accent-border: rgba(192, 132, 252, 0.5);
-  --social-bg: rgba(47, 48, 58, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  --bg: #faf7f4;
+  --bg-card: #ffffff;
+  --text: #7a5c45;
+  --text-h: #1c1209;
+  --accent: #c85d1a;
+  --accent-light: rgba(200, 93, 26, 0.1);
+  --border: #e5ddd5;
+  --nav-bg: #ffffff;
+  --footer-bg: #1c1209;
+  --footer-text: #b09a88;
+  --shadow: 0 4px 24px rgba(28, 18, 9, 0.08);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Inter', system-ui, 'Segoe UI', sans-serif;
+  --heading: 'Lora', Georgia, serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  font: 17px/155% var(--sans);
+  letter-spacing: 0.1px;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -28,10 +27,9 @@
   -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 1024px) {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -47,46 +45,13 @@ body {
   flex-direction: column;
 }
 
-h1,
-h2 {
+h1, h2, h3 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+p {
+  margin: 0;
 }

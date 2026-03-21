@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1920&h=1080&fit=crop&auto=format',
-    title: 'Naši kućni ljubimci',
-    subtitle: 'Upoznajte Oskara i Oryxa — dva mala malteza s velikim srcima.',
+    url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1920&h=700&fit=crop&auto=format',
+    title: 'Život s maltežanima',
+    subtitle: 'Ljubav, igra i beskrajna nježnost',
   },
   {
-    url: 'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1920&h=1080&fit=crop&auto=format',
-    title: 'Bezuvjetna ljubav',
-    subtitle: 'Svaki dan s njima je nova avantura i puno smijeha.',
+    url: 'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1920&h=700&fit=crop&auto=format',
+    title: 'Naši mali junaci',
+    subtitle: 'Svaki dan pun smijeha i avantura',
   },
 ]
 
@@ -36,112 +36,113 @@ export default function Home() {
   }, [current, goTo])
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent(c => (c + 1) % slides.length)
-    }, 5500)
+    const id = setInterval(() => setCurrent(c => (c + 1) % slides.length), 5500)
     return () => clearInterval(id)
   }, [])
 
   const slide = slides[current]
 
   return (
-    <main className="flex-1">
-      {/* Hero slider */}
-      <section className="relative w-full h-screen overflow-hidden">
+    <main className="flex-1" style={{ background: 'var(--bg)' }}>
+
+      {/* ── Hero slider ── */}
+      <section className="relative w-full overflow-hidden" style={{ height: 'clamp(320px, 50vh, 520px)' }}>
         {slides.map((s, i) => (
           <img
             key={s.url}
             src={s.url}
             alt=""
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               i === current ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Gradient overlay — darker at centre for readability */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.35) 100%)' }} />
 
-        <div
-          className={`absolute inset-0 flex items-end px-8 md:px-16 pb-20 md:pb-28 transition-opacity duration-400 ${
-            animating ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-white uppercase mb-4 leading-tight drop-shadow-lg">
-              {slide.title}
-            </h1>
-            <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed">
-              {slide.subtitle}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/oskar"
-                className="px-7 py-2.5 border-2 border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                Oskar
-              </Link>
-              <Link
-                to="/oryx"
-                className="px-7 py-2.5 border-2 border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                Oryx
-              </Link>
-            </div>
-          </div>
+        {/* Centered text */}
+        <div className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-opacity duration-400 ${animating ? 'opacity-0' : 'opacity-100'}`}>
+          <h1
+            className="text-3xl md:text-5xl font-semibold text-white mb-3 leading-tight"
+            style={{ fontFamily: 'var(--heading)', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}
+          >
+            {slide.title}
+          </h1>
+          <p className="text-white/85 text-base md:text-lg" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+            {slide.subtitle}
+          </p>
         </div>
 
-        {/* Strelice */}
+        {/* Arrow left */}
         <button
           onClick={prev}
           aria-label="Prethodna slika"
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-black/25 hover:bg-black/50 rounded-full p-3 transition-all duration-200 cursor-pointer"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2.5 transition-all duration-200 cursor-pointer"
         >
-          <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <button
-          onClick={next}
-          aria-label="Sljedeća slika"
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-black/25 hover:bg-black/50 rounded-full p-3 transition-all duration-200 cursor-pointer"
-        >
-          <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="13 16 7 10 13 4" />
           </svg>
         </button>
 
-        {/* Točkice */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5">
+        {/* Arrow right */}
+        <button
+          onClick={next}
+          aria-label="Sljedeća slika"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2.5 transition-all duration-200 cursor-pointer"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="7 16 13 10 7 4" />
+          </svg>
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slika ${i + 1}`}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                i === current ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'
-              }`}
+              className="rounded-full transition-all duration-300 cursor-pointer"
+              style={{
+                width: i === current ? '28px' : '10px',
+                height: '10px',
+                background: i === current ? '#fff' : 'rgba(255,255,255,0.45)',
+              }}
             />
           ))}
         </div>
       </section>
 
-      {/* Cards sekcija */}
-      <section className="py-20 px-6 md:px-16">
+      {/* ── Cards sekcija ── */}
+      <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3" style={{ color: 'var(--text-h)' }}>
-            Upoznajte naše pse
-          </h2>
-          <p className="text-center mb-12 text-lg" style={{ color: 'var(--text)' }}>
-            Dva mala malteza, dva velika karaktera.
-          </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Heading */}
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--accent)' }}>
+              Upoznajte ih
+            </p>
+            <h2
+              className="text-3xl md:text-4xl font-semibold mb-3"
+              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+            >
+              Naši psi
+            </h2>
+            {/* Orange underline */}
+            <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
+          </div>
+
+          {/* Two cards */}
+          <div className="grid md:grid-cols-2 gap-7">
+
+            {/* Oskar */}
             <Link
               to="/oskar"
-              className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-              style={{ background: 'rgba(0,0,0,0.18)' }}
+              className="group block rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              style={{ background: 'var(--bg-card)', boxShadow: 'var(--shadow)', border: '1px solid var(--border)' }}
             >
-              <div className="overflow-hidden h-60">
+              <div className="overflow-hidden" style={{ height: '220px' }}>
                 <img
                   src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600&h=400&fit=crop&auto=format"
                   alt="Oskar"
@@ -149,20 +150,25 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2" style={{ color: 'var(--text-h)' }}>Oskar</h3>
-                <p style={{ color: 'var(--text)' }}>Energičan, veseo i uvijek spreman za igru. Pravi mali vođa čopora.</p>
-                <span className="inline-block mt-4 text-sm font-semibold tracking-wide" style={{ color: 'var(--accent)' }}>
-                  Saznaj više →
+                <h3 className="text-xl font-semibold mb-1.5" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
+                  Oskar
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text)' }}>
+                  Veseli dječak pun energije i bezuvjetne ljubavi
+                </p>
+                <span className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>
+                  Upoznaj ga →
                 </span>
               </div>
             </Link>
 
+            {/* Oryx */}
             <Link
               to="/oryx"
-              className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-              style={{ background: 'rgba(0,0,0,0.18)' }}
+              className="group block rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              style={{ background: 'var(--bg-card)', boxShadow: 'var(--shadow)', border: '1px solid var(--border)' }}
             >
-              <div className="overflow-hidden h-60">
+              <div className="overflow-hidden" style={{ height: '220px' }}>
                 <img
                   src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop&auto=format"
                   alt="Oryx"
@@ -170,16 +176,22 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2" style={{ color: 'var(--text-h)' }}>Oryx</h3>
-                <p style={{ color: 'var(--text)' }}>Miran, razborit i dostojanstven. Uvijek pronađe najudobnije mjesto u kući.</p>
-                <span className="inline-block mt-4 text-sm font-semibold tracking-wide" style={{ color: 'var(--accent)' }}>
-                  Saznaj više →
+                <h3 className="text-xl font-semibold mb-1.5" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
+                  Oryx
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text)' }}>
+                  Nježan i radoznao istraživač s mudrim pogledom
+                </p>
+                <span className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>
+                  Upoznaj ga →
                 </span>
               </div>
             </Link>
+
           </div>
         </div>
       </section>
+
     </main>
   )
 }
