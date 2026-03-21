@@ -1,3 +1,11 @@
+import { useState, useCallback } from 'react'
+
+const images = [
+  { src: '/oskar3.jpg', fit: 'contain' },
+  { src: '/oskar0.jpg', fit: 'cover' },
+  { src: '/oskar4.jpg', fit: 'cover' },
+]
+
 const facts = [
   { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
   { label: 'Težina', value: '2–4 kg' },
@@ -6,6 +14,49 @@ const facts = [
   { label: 'Dlaka', value: 'Bijela, svilenkasta, dugačka' },
   { label: 'Karakter', value: 'Nježan, veseo, odan, pametan' },
 ]
+
+function Slider({ images }) {
+  const [current, setCurrent] = useState(0)
+
+  const prev = useCallback(() => setCurrent(c => (c - 1 + images.length) % images.length), [images.length])
+  const next = useCallback(() => setCurrent(c => (c + 1) % images.length), [images.length])
+
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-md mb-12" style={{ border: '1px solid var(--border)' }}>
+      <div className="relative" style={{ aspectRatio: '4/3' }}>
+        {images.map((img, i) => (
+          <img
+            key={img.src}
+            src={img.src}
+            alt={`Oskar ${i + 1}`}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0'}`}
+            style={{ objectFit: img.fit, background: 'var(--bg-card)' }}
+          />
+        ))}
+
+        <button onClick={prev} aria-label="Prethodna" className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow cursor-pointer transition-all" style={{ color: 'var(--text-h)' }}>
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="11 14 5 8 11 2" /></svg>
+        </button>
+        <button onClick={next} aria-label="Sljedeća" className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow cursor-pointer transition-all" style={{ color: 'var(--text-h)' }}>
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="5 14 11 8 5 2" /></svg>
+        </button>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 py-3" style={{ background: 'var(--bg-card)', borderTop: '1px solid var(--border)' }}>
+        {images.map((__, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Slika ${i + 1}`}
+            className="rounded-full cursor-pointer transition-all duration-300"
+            style={{ width: i === current ? '24px' : '8px', height: '8px', background: i === current ? 'var(--accent)' : 'var(--border)' }}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Oskar() {
   return (
@@ -16,10 +67,7 @@ export default function Oskar() {
         <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--accent)' }}>
           Naš stariji
         </p>
-        <h1
-          className="text-5xl md:text-6xl font-semibold mb-3"
-          style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
-        >
+        <h1 className="text-5xl md:text-6xl font-semibold mb-3" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
           Oskar
         </h1>
         <p className="text-lg italic mb-4" style={{ fontFamily: 'var(--heading)', color: 'var(--text)' }}>
@@ -32,22 +80,11 @@ export default function Oskar() {
       <section className="py-14 px-6">
         <div className="max-w-2xl mx-auto">
 
-          {/* Slika */}
-          <div className="flex justify-center mb-12">
-            <img
-              src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600&h=500&fit=crop&auto=format"
-              alt="Oskar"
-              className="rounded-2xl shadow-md"
-              style={{ maxWidth: '380px', width: '100%', border: '1px solid var(--border)' }}
-            />
-          </div>
+          <Slider images={images} />
 
           {/* Opis */}
           <div className="mb-10">
-            <h2
-              className="flex items-center gap-2.5 text-xl font-semibold mb-4"
-              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
-            >
+            <h2 className="flex items-center gap-2.5 text-xl font-semibold mb-4" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </svg>
@@ -62,30 +99,18 @@ export default function Oskar() {
 
           {/* O pasmini */}
           <div className="mb-10">
-            <h2
-              className="flex items-center gap-2.5 text-xl font-semibold mb-5"
-              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
-            >
+            <h2 className="flex items-center gap-2.5 text-xl font-semibold mb-5" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
               O pasmini
             </h2>
-
             <div className="grid grid-cols-2 gap-3">
               {facts.map((f) => (
-                <div
-                  key={f.label}
-                  className="px-4 py-3 rounded-xl"
-                  style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
-                >
-                  <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--text)' }}>
-                    {f.label}
-                  </p>
-                  <p className="font-semibold text-sm" style={{ color: 'var(--text-h)' }}>
-                    {f.value}
-                  </p>
+                <div key={f.label} className="px-4 py-3 rounded-xl" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--text)' }}>{f.label}</p>
+                  <p className="font-semibold text-sm" style={{ color: 'var(--text-h)' }}>{f.value}</p>
                 </div>
               ))}
             </div>

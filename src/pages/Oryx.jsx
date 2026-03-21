@@ -35,7 +35,7 @@ export default function Oryx() {
           {/* Slika */}
           <div className="flex justify-center mb-12">
             <img
-              src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=500&fit=crop&auto=format"
+              src="/oryx.jpg"
               alt="Oryx"
               className="rounded-2xl shadow-md"
               style={{ maxWidth: '380px', width: '100%', border: '1px solid var(--border)' }}
