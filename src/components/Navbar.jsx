@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const links = [
@@ -16,12 +16,25 @@ const linkClass = ({ isActive }) =>
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-281.5 mx-auto px-6 flex items-center justify-between h-16">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled || open
+          ? 'bg-black/70 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <NavLink to="/" className="text-white font-semibold text-lg drop-shadow">
-          Naši kućni ljubimci
+          Naši kućni ljubimci 🐾
         </NavLink>
 
         {/* Desktop */}
@@ -37,7 +50,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 cursor-pointer"
           onClick={() => setOpen(!open)}
           aria-label="Izbornik"
         >
@@ -60,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden list-none m-0 p-0 bg-black/70 backdrop-blur-sm">
+        <ul className="md:hidden list-none m-0 p-0 border-t border-white/10">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink

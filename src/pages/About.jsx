@@ -1,7 +1,7 @@
 
 export default function About() {
   return (
-    <main className="flex flex-col items-center flex-1 px-12 md:px-24 pt-24 pb-24 w-full">
+    <main className="flex flex-col items-center flex-1 px-12 md:px-24 pt-24 pb-16 w-full">
 
       {/* Intro */}
       <h1 className="text-4xl md:text-5xl font-semibold text-(--text-h) mb-10 text-center">

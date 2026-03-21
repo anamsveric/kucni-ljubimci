@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
 import Home from './pages/Home'
 import About from './pages/About'
 import Oskar from './pages/Oskar'
@@ -25,6 +26,7 @@ function App() {
         <Route path="/politika-privatnosti" element={<Privacy />} />
       </Routes>
       <Footer />
+      <CookieConsent />
     </BrowserRouter>
   )
 }
