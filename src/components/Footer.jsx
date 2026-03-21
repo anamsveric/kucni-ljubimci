@@ -43,15 +43,6 @@ export default function Footer() {
             <Link to="/politika-privatnosti" className="underline underline-offset-2 hover:text-white transition-colors">
               Politika privatnosti
             </Link>
-            <span style={{ color: 'var(--footer-text)' }}>•</span>
-            <a
-              href="https://anamsveric.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-white transition-colors"
-            >
-              Stranica autora
-            </a>
           </div>
 
         </div>

@@ -1,42 +1,106 @@
+const facts = [
+  { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
+  { label: 'Težina', value: '2–4 kg' },
+  { label: 'Visina', value: '20–25 cm' },
+  { label: 'Životni vjek', value: '12–15 godina' },
+  { label: 'Dlaka', value: 'Bijela, svilenkasta, dugačka' },
+  { label: 'Karakter', value: 'Nježan, veseo, odan, pametan' },
+]
 
 export default function Oskar() {
   return (
-    <main className="flex flex-col items-center flex-1 px-12 md:px-24 pt-24 pb-16 w-full">
+    <main className="flex-1 pt-16" style={{ background: 'var(--bg)' }}>
 
-      <h1 className="text-4xl md:text-5xl font-semibold text-(--text-h) mb-10 text-center">
-        Oskar
-      </h1>
-
-      {/* 1. Slika */}
-      <section className="w-full mb-12">
-        <img
-          src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=800&auto=format"
-          alt="Oskar"
-          className="max-w-full h-auto rounded-xl"
-        />
+      {/* Hero */}
+      <section className="py-14 px-6 text-center" style={{ borderBottom: '1px solid var(--border)' }}>
+        <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--accent)' }}>
+          Naš stariji
+        </p>
+        <h1
+          className="text-5xl md:text-6xl font-semibold mb-3"
+          style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+        >
+          Oskar
+        </h1>
+        <p className="text-lg italic mb-4" style={{ fontFamily: 'var(--heading)', color: 'var(--text)' }}>
+          Naš veseljak
+        </p>
+        <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
       </section>
 
-      <div className="w-full grid md:grid-cols-2 gap-8 mb-4">
-        {/* 2. Opis */}
-        <section>
-          <h2 className="text-2xl font-semibold text-(--text-h) mb-3">Ukratko</h2>
-          <p className="text-(--text) leading-relaxed">
-            Oskar je pun energije i bezuvjetne ljubavi. Uvijek je prvi na vratima
-            kad se netko vrati kući i nikad ne propušta priliku za igru. Voli
-            šetnje, trčanje i maziti se navečer na kauču.
-          </p>
-        </section>
+      {/* Sadržaj */}
+      <section className="py-14 px-6">
+        <div className="max-w-2xl mx-auto">
 
-        {/* 3. Pasmina */}
-        <section>
-          <h2 className="text-2xl font-semibold text-(--text-h) mb-3">Pasmina</h2>
-          <p className="text-(--text) leading-relaxed">
-            Maltezer mješanac. Sitne građe, bijele dlake i velikih tamnih očiju.
-            Pasmina poznata po toplom karakteru i privrženosti obitelji.
-          </p>
-        </section>
-      </div>
+          {/* Slika */}
+          <div className="flex justify-center mb-12">
+            <img
+              src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600&h=500&fit=crop&auto=format"
+              alt="Oskar"
+              className="rounded-2xl shadow-md"
+              style={{ maxWidth: '380px', width: '100%', border: '1px solid var(--border)' }}
+            />
+          </div>
 
+          {/* Opis */}
+          <div className="mb-10">
+            <h2
+              className="flex items-center gap-2.5 text-xl font-semibold mb-4"
+              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              Opis
+            </h2>
+            <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
+              Oskar je naš stariji pas, pun energije i ljubavi. Uvijek spreman za igru i mazanje.
+              Voli šetnje, igračke i grickanje poslastica. Svako jutro počinje s radošću i zanosom
+              koji nas odmah raspolože. Bez Oskara kuća bi bila puno tiša — ali i puno dosadnija.
+            </p>
+          </div>
+
+          {/* O pasmini */}
+          <div className="mb-10">
+            <h2
+              className="flex items-center gap-2.5 text-xl font-semibold mb-5"
+              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              O pasmini
+            </h2>
+
+            <div className="grid grid-cols-2 gap-3">
+              {facts.map((f) => (
+                <div
+                  key={f.label}
+                  className="px-4 py-3 rounded-xl"
+                  style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--text)' }}>
+                    {f.label}
+                  </p>
+                  <p className="font-semibold text-sm" style={{ color: 'var(--text-h)' }}>
+                    {f.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Završni paragraf */}
+          <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
+            Maltežani su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
+            kuće jer ne trebaju veliku površinu za kretanje. Iznimno su privrženi vlasnicima i
+            ne vole dugo biti sami. Njihova bijela dlaka zahtijeva redovitu njegu, ali svaki
+            trud se isplati kad vidite kako sjaje.
+          </p>
+
+        </div>
+      </section>
 
     </main>
   )

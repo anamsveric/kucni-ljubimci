@@ -1,135 +1,116 @@
-import { Link } from 'react-router-dom'
+function PawDivider() {
+  return (
+    <div className="flex items-center gap-4 my-10" style={{ color: 'var(--accent)' }}>
+      <div className="flex-1" style={{ height: '1px', background: 'var(--border)' }} />
+      <svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+        <ellipse cx="12" cy="20" rx="6" ry="9" />
+        <ellipse cx="26" cy="12" rx="6" ry="9" />
+        <ellipse cx="40" cy="12" rx="6" ry="9" />
+        <ellipse cx="54" cy="20" rx="6" ry="9" />
+        <path d="M32 28c-10 0-20 8-18 20 1.5 9 8 12 18 12s16.5-3 18-12c2-12-8-20-18-20z" />
+      </svg>
+      <div className="flex-1" style={{ height: '1px', background: 'var(--border)' }} />
+    </div>
+  )
+}
 
-const facts = [
-  { icon: '🐾', label: 'Pasmina', value: 'Maltezer' },
-  { icon: '🏠', label: 'Dom', value: 'Stan, Zagreb' },
-  { icon: '❤️', label: 'Karakter', value: 'Nježni i veseli' },
-  { icon: '📅', label: 'Stranica od', value: '2024.' },
+const tags = [
+  'Odani prijatelji',
+  'Savršeni za stan',
+  'Nježnog karaktera',
+  'Pametni i veseli',
+  'Duga dlaka, kratke noge',
 ]
 
 export default function About() {
   return (
     <main className="flex-1 pt-16" style={{ background: 'var(--bg)' }}>
 
-      {/* Hero naslov */}
-      <section
-        className="py-16 px-6 text-center"
-        style={{ borderBottom: '1px solid var(--border)' }}
-      >
-        <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--accent)' }}>
-          O nama
+      {/* Hero */}
+      <section className="py-14 px-6 text-center" style={{ borderBottom: '1px solid var(--border)' }}>
+        <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--accent)' }}>
+          Naša priča
         </p>
         <h1
-          className="text-4xl md:text-5xl font-semibold mb-4"
+          className="text-5xl md:text-6xl font-semibold mb-4"
           style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
         >
-          Oskar &amp; Oryx
+          O nama
         </h1>
-        <div className="mx-auto mb-6 rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
-        <p className="max-w-xl mx-auto text-base leading-relaxed" style={{ color: 'var(--text)' }}>
-          Stranica nastala iz ljubavi prema našim malim maltežanima. Ovdje
-          dijelimo svakodnevne trenutke, savjete o njezi i sve što smo naučili
-          živući s njima.
-        </p>
+        <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
       </section>
 
-      {/* Brzi fakti */}
-      <section className="py-10 px-6" style={{ background: 'var(--bg-card)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {facts.map((f) => (
-            <div key={f.label}>
-              <div className="text-3xl mb-2">{f.icon}</div>
-              <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--accent)' }}>
-                {f.label}
-              </p>
-              <p className="font-semibold" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
-                {f.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Sadržaj */}
+      <section className="py-14 px-6">
+        <div className="max-w-2xl mx-auto">
 
-      {/* Glavni sadržaj */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-
-          {/* Slika */}
-          <div className="rounded-2xl overflow-hidden shadow-md" style={{ border: '1px solid var(--border)' }}>
-            <img
-              src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700&h=500&fit=crop&auto=format"
-              alt="Oskar i Oryx"
-              className="w-full h-full object-cover"
-              style={{ minHeight: '280px' }}
-            />
-          </div>
-
-          {/* Tekst */}
-          <div className="flex flex-col justify-center gap-6">
-            <div>
-              <h2 className="text-2xl font-semibold mb-3" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
-                Što možete pronaći ovdje?
-              </h2>
-              <p className="leading-relaxed text-sm" style={{ color: 'var(--text)' }}>
-                Svaki ljubimac poseban je na svoj način — od karaktera i navika
-                do specifičnih potreba njege. Na ovoj stranici donosimo priče
-                i informacije o našim ljubimcima Oskaru i Oryxu.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-semibold mb-3" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
-                Zašto baš ovi ljubimci?
-              </h2>
-              <p className="leading-relaxed text-sm" style={{ color: 'var(--text)' }}>
-                Oskar i Oryx nisu samo kućni ljubimci — oni su dio obitelji.
-                Svaki dan donose radost, smijeh i ponekad malo kaosa.
-                Pratite nas i upoznajte njihove osobnosti.
-              </p>
-            </div>
-
-            <div className="flex gap-3 pt-2">
-              <Link
-                to="/oskar"
-                className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:opacity-90"
-                style={{ background: 'var(--accent)', color: '#fff' }}
-              >
-                Upoznaj Oskara
-              </Link>
-              <Link
-                to="/oryx"
-                className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:bg-black/5"
-                style={{ color: 'var(--accent)', border: '2px solid var(--accent)' }}
-              >
-                Upoznaj Oryxa
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Maltezer info strip */}
-      <section className="py-12 px-6" style={{ background: 'var(--footer-bg)' }}>
-        <div className="max-w-3xl mx-auto text-center">
+          {/* Kako je sve počelo */}
           <h2
-            className="text-2xl md:text-3xl font-semibold mb-4"
-            style={{ fontFamily: 'var(--heading)', color: '#fff' }}
+            className="text-3xl font-semibold mb-6"
+            style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
           >
-            O pasmini maltezer
+            Kako je sve počelo
           </h2>
-          <p className="text-sm leading-relaxed mb-6" style={{ color: '#b09a88' }}>
-            Maltezer je jedna od najstarijih i najvoljenijih pasmina na svijetu.
-            Poznat po svilenkastoj bijeloj dlaci, živahnom karakteru i
-            bezuvjetnoj privrženosti obitelji — idealan pas za život u stanu.
+
+          <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
+            Sve je počelo s jednim pogledom — onim malim, crnim, sjajevitim pogledom koji te
+            potpuno osvoji. Kada smo donijeli Oskara kući, znali smo da nam je život zauvijek
+            promijenjen. A onda je stigao i Oryx, i kuća je postala premala za toliku ljubav.
           </p>
-          <Link
-            to="/zdravlje"
-            className="inline-block px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:opacity-90"
-            style={{ background: 'var(--accent)', color: '#fff' }}
+
+          <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
+            Ova stranica nastala je iz žele da dokumentiramo svakodnevni život naših dvaju
+            maltežana — njihove avanture, navike, zdravlje i one sitne momente koji te rasplaču
+            od sreće. Ujedno je to i mjesto gdje možemo podijeliti iskustva s drugim vlasnicima
+            maltežana i ljubiteljima pasa.
+          </p>
+
+          <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
+            Bilo da ste ovdje zbog savjeta o prehrani, njezi krzna ili jednostavno zbog slatkih
+            fotografija — dobrodošli ste u naš mali kutić interneta.
+          </p>
+
+          <PawDivider />
+
+          {/* Zašto maltežani */}
+          <h2
+            className="text-3xl font-semibold mb-6"
+            style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
           >
-            Zdravlje i njega →
-          </Link>
+            Zašto maltežani?
+          </h2>
+
+          <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
+            Maltežan je jedna od najstarijih pasmina pasa na svijetu, s poviješću dugom više
+            od 2000 godina. Mali su, ali srce im je golemo. Njihova bijela, svilenkasta dlaka
+            i nježan karakter osvajaju sve koji ih upoznaju.
+          </p>
+
+          <p className="leading-relaxed mb-8" style={{ color: 'var(--text)' }}>
+            Lojalni su, pametni, veseli i iznimno odani svojim vlasnicima. Savršeni su za stan,
+            ne trebaju puno prostora — ali trebaju puno ljubavi. I to im uvijek vraćate višestruko.
+          </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2.5">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm"
+                style={{
+                  color: 'var(--accent)',
+                  border: '1px solid var(--accent)',
+                  background: 'var(--accent-light)',
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                {tag}
+              </span>
+            ))}
+          </div>
+
         </div>
       </section>
 
