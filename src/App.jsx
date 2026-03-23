@@ -14,7 +14,7 @@ import Privacy from './pages/Privacy'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kucni-ljubimci">
       <ScrollToTop />
       <Navbar />
       <Routes>
