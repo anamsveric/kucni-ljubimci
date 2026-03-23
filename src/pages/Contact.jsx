@@ -22,8 +22,8 @@ export default function Contact() {
           <div>
             {/* Zašto pisati */}
             <h2
-              className="text-2xl font-semibold mb-8 "
-              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+              className="text-2xl font-semibold"
+              style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)', marginBottom: '2rem' }}
             >
               Tu sam za sve!
             </h2>
