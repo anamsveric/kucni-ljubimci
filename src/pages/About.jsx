@@ -17,7 +17,7 @@ function AboutSlider() {
         {slides.map((src, i) => (
           <img key={src} src={src} alt={`Mi ${i + 1}`}
             className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0'}`}
-            style={{ objectFit: 'cover' }} />
+            style={{ objectFit: 'contain', background: 'var(--bg)' }} />
         ))}
         <button onClick={prev} aria-label="Prethodna" className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow cursor-pointer transition-all" style={{ color: 'var(--text-h)' }}>
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="11 14 5 8 11 2" /></svg>
