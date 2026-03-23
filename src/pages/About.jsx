@@ -107,8 +107,8 @@ export default function About() {
       </section>
 
       {/* Sadržaj — grid */}
-      <section id="about-content" className="py-14 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section id="about-content" className="py-14 px-4 md:px-10">
+        <div className="w-full">
 
           {/* Dva stupca */}
           <div className="grid md:grid-cols-2 gap-10 mb-4">
