@@ -88,14 +88,26 @@ export default function About() {
       </section>
 
       {/* Slider */}
-      <section className="px-6 pt-14">
+      <section className="px-6 pt-14 relative">
         <div className="max-w-2xl mx-auto">
           <AboutSlider />
+        </div>
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() => document.getElementById('about-content').scrollIntoView({ behavior: 'smooth' })}
+            className="flex items-center justify-center cursor-pointer border-0 p-0"
+            style={{ animation: 'scrollBounce 1.8s ease-in-out infinite', width: '48px', height: '48px', borderRadius: '50%', background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+            aria-label="Scroll dolje"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
         </div>
       </section>
 
       {/* Sadržaj — grid */}
-      <section className="py-14 px-6">
+      <section id="about-content" className="py-14 px-6">
         <div className="max-w-6xl mx-auto">
 
           {/* Dva stupca */}
