@@ -63,7 +63,7 @@ export default function About() {
 
       {/* Sadržaj — grid */}
       <section className="py-14 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
 
           {/* Dva stupca */}
           <div className="grid md:grid-cols-2 gap-10 mb-4">
