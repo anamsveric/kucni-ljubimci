@@ -53,9 +53,9 @@ function Card({ icon, title, children }) {
         {icon}
         {title}
       </h3>
-      <p className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
+      <div className="text-sm leading-relaxed space-y-3" style={{ color: 'var(--text)' }}>
         {children}
-      </p>
+      </div>
     </div>
   )
 }
@@ -101,9 +101,13 @@ export default function Health() {
 
           {/* Hrana */}
           <Card icon={<IconHrana />} title="Hrana">
-            Oskar jede 2x dnevno premium suhu hranu za male pasmine. Svježe meso dodajemo
-            2–3 puta tjedno kao nadopunu. Izbjegavamo: čokoladu, grožđe, luk i slane
-            grickalice. Svježa voda uvijek dostupna.
+            Oskar kao alergičar, nakon masu isprobane suhe hrane (počevši kao štene sa Royal Caninom, pa Brit premium, Happy dog Skin, Carnilove salmon, 
+            Happy dog (HD) Naturcroq) prešli smo na savjet veterinara (Pula - Punta, dr. Kočar i dr. Samante (dermatologice)) na
+            HD Hypersensitivity. Kako je ta hrana i dalje radila probleme kože, tako smo prešli na Natures protection white fish koja se pokazala 
+            odlična ali se Oskaru nije svidjela veličina krokića (jako su sitni, nema se šta grist on) pa sam ga prebacila na čistu hranu, 
+            bez "pileće masti" na <b>Fish 4 dogs white fish (žuta linija)</b>. Mogu samo reći da je preporođen.
+            <p>U našem slučaju ova hrana odgovara, treba pratiti probavu psa te davati DOZU koja je na vrečici po kg ili preporuka od veterinara! </p>
+            
           </Card>
           <Card icon={<IconHrana />} title="Hrana">
             Oryx preferira mokru hranu pomiješanu sa suhom. Jede 2x dnevno u manjim
@@ -113,21 +117,27 @@ export default function Health() {
 
           {/* Koža i krzno */}
           <Card icon={<IconKoza />} title="Koža i krzno">
-            Oskarovo bijelo krzno zahtijeva redovito četkanje svaki dan. Kupamo ga svakih
-            2–3 tjedna s blagim šamponom za pse. Trimer posjećujemo svakih 6–8 tjedana.
-            Oko očiju brišemo svakodnevno vlažnom krpicom.
+            Oskarovo bijelo krzno zahtijeva redovito četkanje svaki dan. Kupam ga svakih 1 mjesec doma zbog stavljanja ampule (alergičar) i to najjače 
+            Ataxxa ili Fypryst. Svakih 3 mjeseca ide u salon na šišanje. Ja doma redovno skraćujem područje oko očiju, mekuši/šapice trimerom, oko repa i spolovila. 
+            Za uši koristim otopinu jabučnog octa i vode (isti omjer) ili otopinu za uši od Animology (Pet centar). Dlačice se počupaju - smetaju ali ne boli.
           </Card>
           <Card icon={<IconKoza />} title="Koža i krzno">
             Oryxevo krzno je nešto finijeg tipa i traži posebnu pažnju. Četkamo ga dva
             puta dnevno. Koristimo specijalni balzam za sjaj. Kupamo svakih 10–14 dana.
-            Redovite kontrole kože zbog osjetljivosti.
           </Card>
 
           {/* Alergije */}
           <Card icon={<IconAlergije />} title="Alergije">
-            Oskar ima blagu osjetljivost na određene trave i pelud u proljeće. Simptomi
-            uključuju kihanje i suzne oči. Redovito čišćenje šapa nakon šetnje pomaže.
-            Po savjetu veterinara dajemo mu antihistaminik u sezoni cvatnje.
+            <p>Oskar ima "sve alergije". Testiran je zbog osipa i ljuštenja kože (ljeto 2023, krv se slala u Laboklin). Ima kontaktnu alergiju na sve trave,
+            buhe, hranu sa acarus siro (brašnenu grinju tj sva hrana sa žitaricama), udišne alergene peludi. Simptomi uključuju kihanje i suzne oči koje održavamo.
+            Redovito čišćenje šapa nakon šetnje i prije spavanja pomaže. Po savjetu veterinara išli smo na terapiju za jačanje imuniteta godinu i pol. Počeli odmah
+            po dobivenom nalazu i završili za Božić 2025. Mogu samo reći da je terapija uspješna, koža mu je stabilizirana, pogotovo jer je i hrana jako utjecala.</p>
+            <p>Drugi test - test na hranu, napravljen je na zimu 2023 (Biovet SLO, vet Marko Nabergoj), slali uzorak sline. Nalaz je pokazao da ima smetnje
+              kontaktnih alergena: perad, divljač (svinjetina, govedina), ovčju vunu, jabuku, jaja, laktozu, kravlje mlijeko, žitarice (ječam, heljda, pšenica,
+              kukuruz, riža, pšenica-gluten /vidi šta sve spada na Google-u pod dobre i loše žitarice). Tako da mu je riba spas, čista hrana sa ribom. Od divljači
+              je isprobano konja i paše mu donekle, radi mu suzne oči, pa se i to prestalo koristit. Naglašavam da svu hranu koju jede - je suha hrana, kroketi.
+              Nakon ovog prvog testa napravljen je na zimu 2025 ponovno test na hranu, ali za prelaz na barf hranu - NE SMIJE.
+            </p>
           </Card>
           <Card icon={<IconAlergije />} title="Alergije">
             Oryx ima osjetljiviju kožu i pokazuje reakcije na neke vrste hrane.
