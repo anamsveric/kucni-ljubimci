@@ -128,9 +128,9 @@ export default function About() {
               </p>
               <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
                 Ova stranica nastala je iz žele da dokumentiramo svakodnevni život naših dvaju
-                Maltezeera — njihove avanture, navike, zdravlje i one sitne momente koji te rasplaču
+                maltezera — njihove avanture, navike, zdravlje i one sitne momente koji te rasplaču
                 od sreće. Ujedno je to i mjesto gdje možemo podijeliti iskustva s drugim vlasnicima
-                Maltezeera i ljubiteljima pasa.
+                maltezera i ljubiteljima pasa.
               </p>
               <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
                 Bilo da ste ovdje zbog savjeta o prehrani, njezi krzna ili jednostavno zbog slatkih
