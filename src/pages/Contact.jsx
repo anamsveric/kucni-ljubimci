@@ -45,6 +45,17 @@ export default function Contact() {
             <div className="flex flex-col gap-3">
 
             <a
+              href="tel:+385976002059"
+              className="flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-200 hover:shadow-md"
+              style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-h)' }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#25D366', flexShrink: 0 }}>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6.06 6.06l.95-1.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span className="text-sm font-medium">097 600 2059 &nbsp;·&nbsp; WhatsApp &nbsp;·&nbsp; Viber</span>
+            </a>
+
+            <a
               href="mailto:anamaria.sveric@gmail.com"
               className="flex items-center gap-3 px-5 py-3.5 rounded-xl transition-all duration-200 hover:shadow-md"
               style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-h)' }}
