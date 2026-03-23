@@ -5,16 +5,45 @@ export default function Home() {
     <main className="flex-1" style={{ background: 'var(--bg)' }}>
 
       {/* ── Slika puna širina ── */}
-      <section className="w-full" style={{ background: 'var(--bg-card)' }}>
+      <section className="w-full relative" style={{ background: 'var(--bg-card)' }}>
         <img
           src="/oba1.jpg"
           alt="Oskar i Oryx"
           className="w-full h-auto block"
         />
+        {/* Scroll indikator */}
+        <button
+          onClick={() => document.getElementById('cards').scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center cursor-pointer border-0 p-0"
+          style={{
+            animation: 'scrollBounce 1.8s ease-in-out infinite',
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.25)',
+            backdropFilter: 'blur(4px)',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.3)',
+          }}
+          aria-label="Scroll dolje"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
       </section>
 
       {/* ── Cards sekcija ── */}
-      <section className="py-16 px-6 md:px-12">
+      <section id="cards" className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
 
           {/* Heading */}

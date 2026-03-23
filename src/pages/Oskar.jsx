@@ -6,13 +6,24 @@ const images = [
   { src: '/oskar4.jpg', fit: 'cover' },
 ]
 
+function oskarAge() {
+  const born = new Date(2021, 8, 15) // 15.09.2021
+  const now = new Date()
+  let years = now.getFullYear() - born.getFullYear()
+  let months = now.getMonth() - born.getMonth()
+  let days = now.getDate() - born.getDate()
+  if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate() }
+  if (months < 0) { years--; months += 12 }
+  return `${years} god. ${months} mj. ${days} dana (r. 15.09.2021.)`
+}
+
 const facts = [
-  { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
-  { label: 'Težina', value: '2–4 kg' },
-  { label: 'Visina', value: '20–25 cm' },
-  { label: 'Životni vjek', value: '12–15 godina' },
-  { label: 'Dlaka', value: 'Bijela, svilenkasta, dugačka' },
-  { label: 'Karakter', value: 'Nježan, veseo, odan, pametan' },
+  { label: 'Početak života', value: 'proputovan svijetom kao štene - putovnica Grčke' },
+  { label: 'Težina', value: '7,5 kg' },
+  { label: 'Geni', value: 'zbog  rano otkrivenih alergija sa 1.godinom, testiran je te ima gene lovnih pasa: labrador, terijer, američki mini ovčar. Sve je to vidno u njegovom karakteru. ' },
+  { label: 'Starost', value: oskarAge() },
+  { label: 'Dlaka', value: 'Bijela, svilenkasta, sjajna, kraća' },
+  { label: 'Karakter', value: 'Nježan, veseo, odan, pametan, lovni nos' },
 ]
 
 function Slider({ images }) {
@@ -91,20 +102,20 @@ export default function Oskar() {
               Opis
             </h2>
             <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-              Oskar je naš stariji pas, pun energije i ljubavi. Uvijek spreman za igru i mazanje.
-              Voli šetnje, igračke i grickanje poslastica. Svako jutro počinje s radošću i zanosom
-              koji nas odmah raspolože. Bez Oskara kuća bi bila puno tiša — ali i puno dosadnija.
+              Oskar je naš stariji pas, pun energije i ljubavi. Uvijek spreman za igru i mazanje. 
+              Obožava šetnje, vožnju, provocirat na zabavu. Svako jutro počinje s radošću i željom za novom avanturom. 
+              Bez Oskara kuća bi bila puno drugačija — ali i puno dosadnija.
             </p>
           </div>
 
-          {/* O pasmini */}
+          {/* O Oskaru */}
           <div className="mb-10">
             <h2 className="flex items-center gap-2.5 text-xl font-semibold mb-5" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              O pasmini
+              O Oskaru
             </h2>
             <div className="grid grid-cols-2 gap-3">
               {facts.map((f) => (

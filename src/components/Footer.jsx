@@ -33,7 +33,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              Oskar &amp; Oryx
+              Anamaria Sverić
             </a>
             {' '}• Sva prava pridržana
           </p>

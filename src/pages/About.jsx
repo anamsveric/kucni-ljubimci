@@ -1,3 +1,12 @@
+const facts = [
+  { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
+  { label: 'Težina', value: '2–4 kg' },
+  { label: 'Visina', value: '20–25 cm' },
+  { label: 'Životni vjek', value: '12–15 godina' },
+  { label: 'Dlaka', value: 'Bijela, svilenkasta, dugačka' },
+  { label: 'Karakter', value: 'Nježan, veseo, odan, pametan' },
+]
+
 function PawDivider() {
   return (
     <div className="flex items-center gap-4 my-10" style={{ color: 'var(--accent)' }}>
@@ -110,6 +119,32 @@ export default function About() {
               </span>
             ))}
           </div>
+
+          <PawDivider />
+
+          {/* O pasmini */}
+          <h2
+            className="text-3xl font-semibold mb-6"
+            style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
+          >
+            O pasmini
+          </h2>
+
+          <div className="grid grid-cols-2 gap-3 mb-8">
+            {facts.map((f) => (
+              <div key={f.label} className="px-4 py-3 rounded-xl" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: 'var(--text)' }}>{f.label}</p>
+                <p className="font-semibold text-sm" style={{ color: 'var(--text-h)' }}>{f.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
+            Maltežani su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
+            kuće jer ne trebaju veliku površinu za kretanje. Iznimno su privrženi vlasnicima i
+            ne vole dugo biti sami. Njihova bijela dlaka zahtijeva redovitu njegu, ali svaki
+            trud se isplati kad vidite kako sjaje.
+          </p>
 
         </div>
       </section>
