@@ -101,15 +101,14 @@ export default function Health() {
 
           {/* Hrana */}
           <Card icon={<IconHrana />} title="Hrana">
-            Oskar kao alergičar, nakon masu isprobane suhe hrane (počevši kao štene sa Royal Caninom, pa Brit premium, Happy dog Skin, Carnilove salmon, 
+            <p style={{ marginBottom: '12px' }}>Oskar kao alergičar, nakon masu isprobane suhe hrane (počevši kao štene sa Royal Caninom, pa Brit premium, Happy dog Skin, Carnilove salmon,
             Happy dog (HD) Naturcroq) prešli smo na savjet veterinara (Pula - Punta, dr. Kočar i dr. Samante (dermatologice)) na
-            HD Hypersensitivity. Kako je ta hrana i dalje radila probleme kože, tako smo prešli na Natures protection white fish koja se pokazala 
-            odlična ali se Oskaru nije svidjela veličina krokića (jako su sitni, nema se šta grist on) pa sam ga prebacila na čistu hranu, 
-            bez "pileće masti" na <b>Fish 4 dogs white fish (žuta linija)</b>. Mogu samo reći da je preporođen.
-           <p>Također svakodnevno koristim dodatke hrani: losos ulje, povremeno kim ulje te maslinovo ulje koje je specifično za dozirat i samu konzumaciu. 
-            Uz to za analne žljezde dajem ili psilium ili prah Bundeva i skliski brijest koji pomogne cijeloj probavi.
-           </p>
-            <p>U našem slučaju ova hrana odgovara, treba pratiti probavu psa te davati DOZU koja je na vrečici po kg ili preporuka od veterinara! </p>
+            HD Hypersensitivity. Kako je ta hrana i dalje radila probleme kože, tako smo prešli na Natures protection white fish koja se pokazala
+            odlična ali se Oskaru nije svidjela veličina krokića (jako su sitni, nema se šta grist on) pa sam ga prebacila na čistu hranu,
+            bez "pileće masti" na <b>Fish 4 dogs white fish (žuta linija)</b>. Mogu samo reći da je preporođen.</p>
+            <p style={{ marginBottom: '12px' }}>Također svakodnevno koristim dodatke hrani: losos ulje, povremeno kim ulje te maslinovo ulje koje je specifično za dozirat i samu konzumaciju.
+            Uz to za analne žljezde dajem ili psilium ili prah Bundeva i skliski brijest koji pomogne cijeloj probavi.</p>
+            <p>U našem slučaju ova hrana odgovara, treba pratiti probavu psa te davati DOZU koja je na vrečici po kg ili preporuka od veterinara!</p>
             
           </Card>
           <Card icon={<IconHrana />} title="Hrana">
