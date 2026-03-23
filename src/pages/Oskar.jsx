@@ -93,8 +93,26 @@ export default function Oskar() {
 
           <Slider images={images} />
 
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={() => document.getElementById('oskar-opis').scrollIntoView({ behavior: 'smooth' })}
+              className="flex items-center justify-center cursor-pointer border-0 p-0"
+              style={{
+                animation: 'scrollBounce 1.8s ease-in-out infinite',
+                width: '48px', height: '48px', borderRadius: '50%',
+                background: 'var(--bg-card)', border: '1px solid var(--border)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              }}
+              aria-label="Scroll dolje"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+
           {/* Opis */}
-          <div className="mb-10">
+          <div id="oskar-opis" className="mb-10">
             <h2 className="flex items-center gap-2.5 text-xl font-semibold mb-4" style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent)' }}>
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -127,14 +145,7 @@ export default function Oskar() {
             </div>
           </div>
 
-          {/* Završni paragraf */}
-          <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-            Maltežani su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
-            kuće jer ne trebaju veliku površinu za kretanje. Iznimno su privrženi vlasnicima i
-            ne vole dugo biti sami. Njihova bijela dlaka zahtijeva redovitu njegu, ali svaki
-            trud se isplati kad vidite kako sjaje.
-          </p>
-
+         
         </div>
       </section>
 

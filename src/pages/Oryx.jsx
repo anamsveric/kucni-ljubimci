@@ -1,11 +1,24 @@
+
+function oryxAge() {
+  const born = new Date(2023, 2, 10) // 10.03.2023
+  const now = new Date()
+  let years = now.getFullYear() - born.getFullYear()
+  let months = now.getMonth() - born.getMonth()
+  let days = now.getDate() - born.getDate()
+  if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate() }
+  if (months < 0) { years--; months += 12 }
+  return `${years} god. ${months} mj. ${days} dana (r. 10.03.2023.)`
+}
+
 const facts = [
-  { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
-  { label: 'Težina', value: '2–4 kg' },
-  { label: 'Visina', value: '20–25 cm' },
-  { label: 'Životni vjek', value: '12–15 godina' },
-  { label: 'Dlaka', value: 'Bijela, svilenkasta, dugačka' },
+  { label: 'Početak života', value: 'obitelj sa više pasa /štanceraj' },
+  { label: 'Težina', value: '3 kg' },
+  { label: 'Geni', value: 'maltezer ' },
+  { label: 'Starost', value: oryxAge() },
+  { label: 'Dlaka', value: 'Bijela, svilenkasta, sjajna, srednja' },
   { label: 'Karakter', value: 'Nježan, veseo, odan, pametan' },
 ]
+
 
 export default function Oryx() {
   return (
@@ -33,7 +46,7 @@ export default function Oryx() {
         <div className="max-w-2xl mx-auto">
 
           {/* Slika */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-6">
             <img
               src="/oryx.jpg"
               alt="Oryx"
@@ -42,8 +55,26 @@ export default function Oryx() {
             />
           </div>
 
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={() => document.getElementById('oryx-opis').scrollIntoView({ behavior: 'smooth' })}
+              className="flex items-center justify-center cursor-pointer border-0 p-0"
+              style={{
+                animation: 'scrollBounce 1.8s ease-in-out infinite',
+                width: '48px', height: '48px', borderRadius: '50%',
+                background: 'var(--bg-card)', border: '1px solid var(--border)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              }}
+              aria-label="Scroll dolje"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4828a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+
           {/* Opis */}
-          <div className="mb-10">
+          <div id="oryx-opis" className="mb-10">
             <h2
               className="flex items-center gap-2.5 text-xl font-semibold mb-4"
               style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
@@ -54,14 +85,14 @@ export default function Oryx() {
               Opis
             </h2>
             <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-              Oryx je mlađi od dvojice i ima nešto mirniji karakter. Radoznao je i voli istraživati
-              svaki kutak kuće i dvorišta. Posebno voli ležati u sunčevim zrakama i promatrati
-              svijet oko sebe s mudrim pogledom. Njegov mirni duh savršeno nadopunjuje Oskarovu
-              energičnost.
+              Oryx je mlađi od dvojice i ima hypan karakter. Voli bit pod nogama, u centru pažnje, da zna sve što se dešava. 
+              Iznimno je privržen s obzirom na prethodne traume (zanemarivanje, borba za život). Posebno voli svoju obitelj, igru sa bracom Oskarom. 
+              Njegov hypan duh savršeno nadopunjuje Oskarovu mirnu narav. 
+              Ono po čemu se tiče od brace, lajavac je na sve što mu je nesigurno (TV, odlazak osoba iz prostoje bez njega, čuvanje dvorišta).
             </p>
           </div>
 
-          {/* O pasmini */}
+          {/* O Oryxu */}
           <div className="mb-10">
             <h2
               className="flex items-center gap-2.5 text-xl font-semibold mb-5"
@@ -71,7 +102,7 @@ export default function Oryx() {
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              O pasmini
+              O Oryxu
             </h2>
 
             <div className="grid grid-cols-2 gap-3">
@@ -91,14 +122,6 @@ export default function Oryx() {
               ))}
             </div>
           </div>
-
-          {/* Završni paragraf */}
-          <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-            Maltežani su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
-            kuće jer ne trebaju veliku površinu za kretanje. Iznimno su privrženi vlasnicima i
-            ne vole dugo biti sami. Njihova bijela dlaka zahtijeva redovitu njegu, ali svaki
-            trud se isplati kad vidite kako sjaje.
-          </p>
 
         </div>
       </section>
