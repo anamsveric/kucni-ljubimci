@@ -9,6 +9,7 @@ import Oryx from './pages/Oryx'
 import Contact from './pages/Contact'
 import Health from './pages/Health'
 import ScrollToTop from './components/ScrollToTop'
+import ScrollToTopButton from './components/ScrollToTopButton'
 import Privacy from './pages/Privacy'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       </Routes>
       <Footer />
       <CookieConsent />
+      <ScrollToTopButton />
     </BrowserRouter>
   )
 }
