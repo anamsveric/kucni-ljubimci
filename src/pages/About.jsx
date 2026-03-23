@@ -128,9 +128,9 @@ export default function About() {
               </p>
               <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
                 Ova stranica nastala je iz žele da dokumentiramo svakodnevni život naših dvaju
-                maltežana — njihove avanture, navike, zdravlje i one sitne momente koji te rasplaču
+                Maltezeera — njihove avanture, navike, zdravlje i one sitne momente koji te rasplaču
                 od sreće. Ujedno je to i mjesto gdje možemo podijeliti iskustva s drugim vlasnicima
-                maltežana i ljubiteljima pasa.
+                Maltezeera i ljubiteljima pasa.
               </p>
               <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
                 Bilo da ste ovdje zbog savjeta o prehrani, njezi krzna ili jednostavno zbog slatkih
@@ -138,16 +138,16 @@ export default function About() {
               </p>
             </div>
 
-            {/* Zašto maltežani */}
+            {/* Zašto Maltezeri */}
             <div>
               <h2
                 className="text-3xl font-semibold mb-6"
                 style={{ fontFamily: 'var(--heading)', color: 'var(--text-h)' }}
               >
-                Zašto maltežani?
+                Zašto Maltezeri?
               </h2>
               <p className="leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
-                Maltežan je jedna od najstarijih pasmina pasa na svijetu, s poviješću dugom više
+                Maltezer je jedna od najstarijih pasmina pasa na svijetu, s poviješću dugom više
                 od 2000 godina. Mali su, ali srce im je golemo. Njihova bijela, svilenkasta dlaka
                 i nježan karakter osvajaju sve koji ih upoznaju.
               </p>
@@ -200,7 +200,7 @@ export default function About() {
             </div>
 
             <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-              Maltežani su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
+              Maltezeri su jedna od najstarijih pasmina na svijetu. Idealni su za stanove i manje
               kuće jer ne trebaju veliku površinu za kretanje. Iznimno su privrženi vlasnicima i
               ne vole dugo biti sami. Njihova bijela dlaka zahtijeva redovitu njegu, ali svaki
               trud se isplati kad vidite kako sjaje.

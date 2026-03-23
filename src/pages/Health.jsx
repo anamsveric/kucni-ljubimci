@@ -76,7 +76,7 @@ export default function Health() {
           Zdravlje
         </h1>
         <p className="text-base mb-5" style={{ color: 'var(--text)' }}>
-          Savjeti o prehrani, njezi krzna i alergijama za naše maltežane
+          Savjeti o prehrani, njezi krzna i alergijama za naše Maltezere
         </p>
         <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
       </section>
