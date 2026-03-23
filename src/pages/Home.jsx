@@ -7,7 +7,7 @@ export default function Home() {
       {/* ── Slika puna širina ── */}
       <section className="w-full relative" style={{ background: 'var(--bg-card)' }}>
         <img
-          src="/oba1.jpg"
+          src={`${import.meta.env.BASE_URL}oba1.jpg`}
           alt="Oskar i Oryx"
           className="w-full h-auto block"
         />
@@ -71,7 +71,7 @@ export default function Home() {
             >
               <div className="overflow-hidden" style={{ height: '220px' }}>
                 <img
-                  src="/oskar3.jpg"
+                  src={`${import.meta.env.BASE_URL}oskar3.jpg`}
                   alt="Oskar"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -97,7 +97,7 @@ export default function Home() {
             >
               <div className="overflow-hidden" style={{ height: '220px' }}>
                 <img
-                  src="/oryx.jpg"
+                  src={`${import.meta.env.BASE_URL}oryx.jpg`}
                   alt="Oryx"
                   className="w-full h-full group-hover:scale-105 transition-transform duration-500"
                   style={{ objectFit: 'contain', background: 'var(--bg-card)' }}

@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from 'react'
 
+const base = import.meta.env.BASE_URL
 const images = [
-  { src: '/oskar3.jpg', fit: 'contain' },
-  { src: '/oskar0.jpg', fit: 'cover' },
-  { src: '/oskar4.jpg', fit: 'cover' },
+  { src: `${base}oskar3.jpg`, fit: 'contain' },
+  { src: `${base}oskar0.jpg`, fit: 'cover' },
+  { src: `${base}oskar4.jpg`, fit: 'cover' },
 ]
 
 function oskarAge() {

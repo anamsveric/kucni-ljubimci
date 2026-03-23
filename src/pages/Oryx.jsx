@@ -48,7 +48,7 @@ export default function Oryx() {
           {/* Slika */}
           <div className="flex justify-center mb-6">
             <img
-              src="/oryx.jpg"
+              src={`${import.meta.env.BASE_URL}oryx.jpg`}
               alt="Oryx"
               className="rounded-2xl shadow-md"
               style={{ maxWidth: '380px', width: '100%', border: '1px solid var(--border)' }}
