@@ -53,7 +53,7 @@ function Card({ icon, title, children }) {
         {icon}
         {title}
       </h3>
-      <div className="text-sm leading-relaxed space-y-3" style={{ color: 'var(--text)' }}>
+      <div className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
         {children}
       </div>
     </div>
@@ -106,13 +106,16 @@ export default function Health() {
             HD Hypersensitivity. Kako je ta hrana i dalje radila probleme kože, tako smo prešli na Natures protection white fish koja se pokazala 
             odlična ali se Oskaru nije svidjela veličina krokića (jako su sitni, nema se šta grist on) pa sam ga prebacila na čistu hranu, 
             bez "pileće masti" na <b>Fish 4 dogs white fish (žuta linija)</b>. Mogu samo reći da je preporođen.
+           <p>Također svakodnevno koristim dodatke hrani: losos ulje, povremeno kim ulje te maslinovo ulje koje je specifično za dozirat i samu konzumaciu. 
+            Uz to za analne žljezde dajem ili psilium ili prah Bundeva i skliski brijest koji pomogne cijeloj probavi.
+           </p>
             <p>U našem slučaju ova hrana odgovara, treba pratiti probavu psa te davati DOZU koja je na vrečici po kg ili preporuka od veterinara! </p>
             
           </Card>
           <Card icon={<IconHrana />} title="Hrana">
             Oryx preferira mokru hranu pomiješanu sa suhom. Jede 2x dnevno u manjim
-            obrocima. Ponekad dodajemo kuhanu piletinu ili ribu. Vitaminski dodaci su
-            dio njegove svakodnevne rutine.
+            obrocima. Njegova hrana je bila Select gold konj sa tripicama ali kako je imao probleme sa analnim žljezdama, veterinar je savjetovao da ga se prebaci
+            na Hills sensitive mokru (konzerve) i suhu. 
           </Card>
 
           {/* Koža i krzno */}
@@ -120,15 +123,16 @@ export default function Health() {
             Oskarovo bijelo krzno zahtijeva redovito četkanje svaki dan. Kupam ga svakih 1 mjesec doma zbog stavljanja ampule (alergičar) i to najjače 
             Ataxxa ili Fypryst. Svakih 3 mjeseca ide u salon na šišanje. Ja doma redovno skraćujem područje oko očiju, mekuši/šapice trimerom, oko repa i spolovila. 
             Za uši koristim otopinu jabučnog octa i vode (isti omjer) ili otopinu za uši od Animology (Pet centar). Dlačice se počupaju - smetaju ali ne boli.
+            Analne žljezde praznim ja sama, nakon što mi je veterinar pokazao kako se radi, čim krene sa simptomoma češkanja ušiju, grickanja repa. 
           </Card>
           <Card icon={<IconKoza />} title="Koža i krzno">
-            Oryxevo krzno je nešto finijeg tipa i traži posebnu pažnju. Četkamo ga dva
-            puta dnevno. Koristimo specijalni balzam za sjaj. Kupamo svakih 10–14 dana.
+            Oryxevo krzno je nešto finijeg tipa i traži posebnu pažnju jer sve lako kupi sa poda. Četkamo ga dva
+            puta dnevno. Koristimo specijalni šampon od groomerke. Kupamo svakih 10–14 dana.
           </Card>
 
           {/* Alergije */}
           <Card icon={<IconAlergije />} title="Alergije">
-            <p>Oskar ima "sve alergije". Testiran je zbog osipa i ljuštenja kože (ljeto 2023, krv se slala u Laboklin). Ima kontaktnu alergiju na sve trave,
+            <p style={{ marginBottom: '12px' }}>Oskar ima "sve alergije". Testiran je zbog osipa i ljuštenja kože (ljeto 2023, krv se slala u Laboklin). Ima kontaktnu alergiju na sve trave,
             buhe, hranu sa acarus siro (brašnenu grinju tj sva hrana sa žitaricama), udišne alergene peludi. Simptomi uključuju kihanje i suzne oči koje održavamo.
             Redovito čišćenje šapa nakon šetnje i prije spavanja pomaže. Po savjetu veterinara išli smo na terapiju za jačanje imuniteta godinu i pol. Počeli odmah
             po dobivenom nalazu i završili za Božić 2025. Mogu samo reći da je terapija uspješna, koža mu je stabilizirana, pogotovo jer je i hrana jako utjecala.</p>
@@ -140,9 +144,8 @@ export default function Health() {
             </p>
           </Card>
           <Card icon={<IconAlergije />} title="Alergije">
-            Oryx ima osjetljiviju kožu i pokazuje reakcije na neke vrste hrane.
-            Izbjegavamo žitarice u hrani i biramo grain-free opcije. Koža mu zna biti
-            crvena oko šapa — liječimo lokalnim pripravkom preporučenim od veterinara.
+            Oryx nije tolko osjetljiv kao Oskar. Napravila se "kontrola" testom na hranu (Biovet, Marko Nabergoj) gdje je potvrđeno da smije jest samo konja što je 
+            postojano već i jeo. Zbog analnih žljezda jede Hills.
           </Card>
 
         </div>
