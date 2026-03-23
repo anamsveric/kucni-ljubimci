@@ -1,75 +1,30 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 const base = import.meta.env.BASE_URL
-const slides = [
-  `${base}mi.jpg`,
-  `${base}mi1.jpg`,
-  `${base}mi2.jpg`,
-  `${base}mi3.jpg`,
-  `${base}mi4.jpg`,
-]
-
-function HomeSlider() {
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setCurrent(c => (c + 1) % slides.length), 4000)
-    return () => clearInterval(t)
-  }, [])
-
-  const prev = () => setCurrent(c => (c - 1 + slides.length) % slides.length)
-  const next = () => setCurrent(c => (c + 1) % slides.length)
-
-  return (
-    <section className="w-full relative" style={{ background: 'var(--bg-card)' }}>
-      <div className="relative w-full overflow-hidden">
-        {slides.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`Oskar i Oryx ${i + 1}`}
-            className={`w-full h-auto block transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0 absolute inset-0'}`}
-            style={{ objectFit: 'cover' }}
-          />
-        ))}
-      </div>
-
-      {/* Strelice */}
-      <button onClick={prev} aria-label="Prethodna" className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer border-0 p-0" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)', boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
-        <svg width="18" height="18" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 16 7 10 13 4" /></svg>
-      </button>
-      <button onClick={next} aria-label="Sljedeća" className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer border-0 p-0" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)', boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
-        <svg width="18" height="18" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="7 16 13 10 7 4" /></svg>
-      </button>
-
-      {/* Dots */}
-      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)} aria-label={`Slika ${i + 1}`} className="rounded-full cursor-pointer border-0 transition-all duration-300" style={{ width: i === current ? '24px' : '8px', height: '8px', background: i === current ? 'white' : 'rgba(255,255,255,0.5)' }} />
-        ))}
-      </div>
-
-      {/* Scroll indikator */}
-      <button
-        onClick={() => document.getElementById('cards').scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center cursor-pointer border-0 p-0"
-        style={{ animation: 'scrollBounce 1.8s ease-in-out infinite', width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)', boxShadow: '0 2px 12px rgba(0,0,0,0.3)' }}
-        aria-label="Scroll dolje"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
-    </section>
-  )
-}
 
 export default function Home() {
   return (
     <main className="flex-1" style={{ background: 'var(--bg)' }}>
 
-      <HomeSlider />
+      {/* ── Slika puna širina ── */}
+      <section className="w-full relative" style={{ background: 'var(--bg-card)' }}>
+        <img
+          src={`${base}oba1.jpg`}
+          alt="Oskar i Oryx"
+          className="w-full h-auto block"
+        />
+        {/* Scroll indikator */}
+        <button
+          onClick={() => document.getElementById('cards').scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center cursor-pointer border-0 p-0"
+          style={{ animation: 'scrollBounce 1.8s ease-in-out infinite', width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)', boxShadow: '0 2px 12px rgba(0,0,0,0.3)' }}
+          aria-label="Scroll dolje"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+      </section>
 
       {/* ── Cards sekcija ── */}
       <section id="cards" className="py-16 px-6 md:px-12">

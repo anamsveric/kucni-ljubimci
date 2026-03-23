@@ -1,3 +1,41 @@
+import { useState, useEffect } from 'react'
+
+const base = import.meta.env.BASE_URL
+const slides = [`${base}mi.jpg`, `${base}mi1.jpg`, `${base}mi2.jpg`, `${base}mi3.jpg`, `${base}mi4.jpg`]
+
+function AboutSlider() {
+  const [current, setCurrent] = useState(0)
+  useEffect(() => {
+    const t = setInterval(() => setCurrent(c => (c + 1) % slides.length), 4000)
+    return () => clearInterval(t)
+  }, [])
+  const prev = () => setCurrent(c => (c - 1 + slides.length) % slides.length)
+  const next = () => setCurrent(c => (c + 1) % slides.length)
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-md" style={{ border: '1px solid var(--border)' }}>
+      <div className="relative" style={{ aspectRatio: '4/3' }}>
+        {slides.map((src, i) => (
+          <img key={src} src={src} alt={`Mi ${i + 1}`}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0'}`}
+            style={{ objectFit: 'cover' }} />
+        ))}
+        <button onClick={prev} aria-label="Prethodna" className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow cursor-pointer transition-all" style={{ color: 'var(--text-h)' }}>
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="11 14 5 8 11 2" /></svg>
+        </button>
+        <button onClick={next} aria-label="Sljedeća" className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow cursor-pointer transition-all" style={{ color: 'var(--text-h)' }}>
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="5 14 11 8 5 2" /></svg>
+        </button>
+      </div>
+      <div className="flex justify-center gap-2 py-3" style={{ background: 'var(--bg-card)', borderTop: '1px solid var(--border)' }}>
+        {slides.map((_, i) => (
+          <button key={i} onClick={() => setCurrent(i)} aria-label={`Slika ${i + 1}`} className="rounded-full cursor-pointer transition-all duration-300"
+            style={{ width: i === current ? '24px' : '8px', height: '8px', background: i === current ? 'var(--accent)' : 'var(--border)' }} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const facts = [
   { label: 'Podrijetlo', value: 'Sredozemlje, 2000+ godina povijesti' },
   { label: 'Težina', value: '2–4 kg' },
@@ -49,15 +87,10 @@ export default function About() {
         <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: 'var(--accent)' }} />
       </section>
 
-      {/* Slika */}
+      {/* Slider */}
       <section className="px-6 pt-14">
         <div className="max-w-2xl mx-auto">
-          <img
-            src={`${import.meta.env.BASE_URL}mi.jpg`}
-            alt="Mi"
-            className="w-full rounded-2xl shadow-md"
-            style={{ border: '1px solid var(--border)' }}
-          />
+          <AboutSlider />
         </div>
       </section>
 
