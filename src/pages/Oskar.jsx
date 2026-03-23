@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 const images = [
   { src: '/oskar3.jpg', fit: 'contain' },
@@ -31,6 +31,11 @@ function Slider({ images }) {
 
   const prev = useCallback(() => setCurrent(c => (c - 1 + images.length) % images.length), [images.length])
   const next = useCallback(() => setCurrent(c => (c + 1) % images.length), [images.length])
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrent(c => (c + 1) % images.length), 4000)
+    return () => clearInterval(timer)
+  }, [images.length])
 
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-md mb-12" style={{ border: '1px solid var(--border)' }}>
@@ -120,7 +125,7 @@ export default function Oskar() {
               Opis
             </h2>
             <p className="leading-relaxed" style={{ color: 'var(--text)' }}>
-              Oskar je naš stariji pas, pun energije i ljubavi. Uvijek spreman za igru i mazanje. 
+              Oskar je naš stariji pas, pun energije i ljubavi. Uvijek spreman za igru i maženje. 
               Obožava šetnje, vožnju, provocirat na zabavu. Svako jutro počinje s radošću i željom za novom avanturom. 
               Bez Oskara kuća bi bila puno drugačija — ali i puno dosadnija.
             </p>

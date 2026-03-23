@@ -36,7 +36,7 @@ export default function Oryx() {
           Oryx
         </h1>
         <p className="text-lg italic mb-4" style={{ fontFamily: 'var(--heading)', color: 'var(--text)' }}>
-          Naš istraživač
+          Naš mali istraživač
         </p>
         <div className="mx-auto rounded-full" style={{ width: '48px', height: '3px', background: '#c4828a' }} />
       </section>
@@ -88,7 +88,7 @@ export default function Oryx() {
               Oryx je mlađi od dvojice i ima hypan karakter. Voli bit pod nogama, u centru pažnje, da zna sve što se dešava. 
               Iznimno je privržen s obzirom na prethodne traume (zanemarivanje, borba za život). Posebno voli svoju obitelj, igru sa bracom Oskarom. 
               Njegov hypan duh savršeno nadopunjuje Oskarovu mirnu narav. 
-              Ono po čemu se tiče od brace, lajavac je na sve što mu je nesigurno (TV, odlazak osoba iz prostoje bez njega, čuvanje dvorišta).
+              Ono po čemu se ističe od brace, lajavac je na sve što mu je nesigurno (TV, odlazak osoba iz prostoje bez njega, čuvanje dvorišta).
             </p>
           </div>
 
